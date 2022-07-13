@@ -1,15 +1,24 @@
-<h1>Articles</h1>
+<h1 class="mb-2 text-align-center">Article</h1>- Our blog has <%= Article.public_count %> articles and counting!<br>
+<%= link_to "Add New Article", new_article_path,class:"btn btn-danger mt-3" %>
 
-Our blog has <%= Article.public_count %> articles and counting!
+<div class="card w-80 mt-3 mb-3">
+  <div class="card-body">
+    <ul class="navbar-nav">
+      <% @articles.each do |article| %>
+        <% if article.status=="public" %>
+          <li class="nav-items card-header">
+            <strong class="card-text"> <%= article.title %></strong><br>
+          </li>
+        
+          <p class="card-text">
+            <%= article.body[0,100]+"............"%>
+            <%=link_to "Read more",article ,class:"nav-link mb-2 mt-2"%>
+          </p>  
+          <hr>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<ul>
-  <% @articles.each do |article| %>
-    <% if article.status=="public" %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
 
-<%= link_to "New Article", new_article_path %>

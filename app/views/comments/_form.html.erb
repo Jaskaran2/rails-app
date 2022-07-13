@@ -1,14 +1,14 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
+  <div class="form-group">
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
+    <%= form.text_field :commenter, class:"form-control mb-2 mt-2" %>
+  </div>
+  <div class="form-group">
     <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p><%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %></p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.text_area :body, class:"form-control mb-2" %>
+  </div>
+  <div class="form-group"><%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %></div>
+  <div class="form-group">
+    <%= form.submit "Add comment", class:"btn btn-dark mt-2" %>
+  </div>
 <% end %>

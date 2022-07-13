@@ -1,21 +1,31 @@
-<h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
-
-
-<% if @article.user.id == Current.user.id %>
-<ul>
-
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-   <li><%= link_to "Destroy", article_path(@article), data: {
+<div class="card w-60">
+  <div class="card-body">
+    <h5 class="card-header"> <%= @article.title %></h5>
+    <p class="card-text mt-1"><%= @article.body %></p>
+    
+    <% if @article.user.id == Current.user.id %>
+      <div class="text-center">
+        <%= link_to "Edit Post", edit_article_path(@article),class:"btn btn-primary mb-2" %>
+        <%= link_to "Destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  },class:"btn btn-danger mb-2" %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%if @article.comments.length > 0 %>
+<div class="card w-60 mt-3 mb-3">
+  <div class="card-body">
+    <h5 class="card-header mt-3">Comment</h5>
+    <p class="card-text mt-1"><%= render @article.comments %></p>
+  </div>
+</div>
 <% end %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
 
-<h2>Add a comment:</h2>
+<h5>Add a comment:</h5>
 <%= render 'comments/form' %>

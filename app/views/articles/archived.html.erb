@@ -1,11 +1,19 @@
 <h1>Archived</h1>
 
-<ul>
-  <%  @archived.each do |article| %>
-   <%if article.status=="archived" %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
-    <%end%>
-  <% end %>
-</ul>
+
+<nav class="nav bg-light nav-tabs mt-4 container-fluid">
+  <div class="card w-60 mt-3 mb-3">
+    <div class="card-body">
+
+      <ul class="navbar-nav">
+        <%  @archived.each do |article| %>
+          <%if article.status=="archived" %>
+            <li class="nav-items card-header">
+              <%= link_to article.title, article,class:"nav-link" %>
+            </li>
+          <%end%>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

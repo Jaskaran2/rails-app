@@ -1,11 +1,17 @@
-<h1>Public and Private Articles</h1>
+<h1>My Articles</h1>
 
-<ul>
-  <% @my_articles.each do |article| %>
-  <%if article.status=="public" or article.status=="private" %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
-    <% end %>
-  <% end %>
-</ul>
+<nav class="nav bg-light nav-tabs mt-4 container-fluid">
+  <div class="card w-60 mt-3 mb-3">
+    <div class="card-body">
+      <ul class="navbar-nav">
+        <% @my_articles.each do |article| %>
+          <%if article.status=="public" or article.status=="private" %>
+            <li class="nav-items card-header">
+              <%= link_to article.title, article,class:"nav-link" %>
+            </li>
+          <%end%>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

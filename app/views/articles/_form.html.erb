@@ -1,24 +1,24 @@
 
 <%= form_with model: article do |form| %>
-  <div>
+  <div class="form-group">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,class:"form-control" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
+  <div class="form-group form-group-lg">
     <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.text_area :body,class:"form-control" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-    <div><%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %><br></div>
+    <div class="form-group"><%= form.select :status, ['public', 'private', 'archived'], selected: 'public',class:"form-control" %><br></div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Create",class:"btn btn-dark mt-2" %>
   </div>
 <% end %>
