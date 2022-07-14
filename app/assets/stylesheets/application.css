@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+ .signcard{
+    width: 450px;
+    border:none;
+    color: #000;
+  }
+
+
+.btn-dark {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.nav-pills{
+
+  display:table !important;
+  width:100%;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+     
+
+}
+
+.nav-item{
+      display: table-cell;
+}
+
+
+
+
+
+
+

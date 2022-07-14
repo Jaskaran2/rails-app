@@ -6,11 +6,13 @@
     
     <% if @article.user.id == Current.user.id %>
       <div class="text-center">
-        <%= link_to "Edit Post", edit_article_path(@article),class:"btn btn-primary mb-2" %>
+      <div class="card-footer">
+        <%= link_to "Edit Post", edit_article_path(@article),class:"btn btn-primary" %>
         <%= link_to "Destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  },class:"btn btn-danger mb-2" %>
+                  },class:"btn btn-danger" %>
+        </div>
         </div>
     <% end %>
   </div>
