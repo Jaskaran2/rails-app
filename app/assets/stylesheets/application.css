@@ -14,10 +14,11 @@
  *= require_self
  */
 
+
+
  .signcard{
     width: 450px;
     border:none;
-    color: #000;
   }
 
 
