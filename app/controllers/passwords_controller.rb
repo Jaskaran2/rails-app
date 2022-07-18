@@ -5,17 +5,16 @@ class PasswordsController<ApplicationController
     end
 
     def update
-       if Current.user.update(password_params)
-            redirect_to root_path,notice:"Password Updated Successfully"
+     user=User.find_by(email: Current.user.email)
+       if user.authenticate(params[:current_password]) and Current.user.update(password_params)
+          redirect_to root_path,notice:"Password Updated Successfully"
        else
-            render :edit
+          render :edit
        end
     end
 
     private
     def password_params
-        params.require(:user).permit(:passowrd, :password_confirmation)
+        params.require(:user).permit(:password, :password_confirmation)
     end
-
-
 end

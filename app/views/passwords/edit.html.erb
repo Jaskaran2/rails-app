@@ -13,6 +13,12 @@
 
 <%end%> 
 
+<% debug Current.user.password %>
+<div class="mb-3">
+    <%=form.label :Current_Password %>
+    <%= form.password_field :current_password, class:"form-control" %>
+</div>
+
 
 <div class="mb-3">
     <%=form.label :password %>
@@ -21,7 +27,7 @@
 
 <div class="mb-3">
     <%=form.label :confirm_password %>
-    <%= form.password_field :password_confirmarion, class:"form-control" %>
+    <%= form.password_field :password_confirmation, class:"form-control" %>
 </div>
 
 <div class="mb-3">

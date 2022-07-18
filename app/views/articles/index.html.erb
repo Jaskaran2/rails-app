@@ -12,9 +12,9 @@
             <strong class="card-text">Title: <%= article.title %></strong><br>
           </li>
         
-          <p class="card-text">
-            <%= article.body[0,100]+"............"%>
-            <%=link_to "Read more",article ,class:"nav-link mb-2 mt-2"%>
+          <p class="card-text mt-2">
+            <%= article.body[0,100]+"............"%><br><br>
+            <%=link_to "Continue Reading",article ,class:"mb-2"%>
           </p>  
           <hr>
         <% end %>
@@ -22,5 +22,7 @@
     </ul>
   </div>
 </div>
+
+
 
 
