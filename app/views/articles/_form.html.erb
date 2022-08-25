@@ -2,7 +2,7 @@
 <%= form_with model: article do |form| %>
   <div class="form-group">
     <%= form.label :title %><br>
-    <%= form.text_field :title,class:"form-control" %>
+    <%= form.text_field :title,class:"form-control",id:"title" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -10,7 +10,7 @@
 
   <div class="form-group form-group-lg">
     <%= form.label :body %><br>
-    <%= form.text_area :body,class:"form-control" %><br>
+    <%= form.text_area :body,class:"form-control",id:"body" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -19,6 +19,6 @@
     <div class="form-group"><%= form.select :status, ['public', 'private', 'archived'], selected: 'public',class:"form-control" %><br></div>
 
   <div class="form-group">
-    <%= form.submit "Create",class:"btn btn-dark mt-2" %>
+    <%= form.submit "Create",class:"btn btn-dark mt-2", id:"create_article"%>
   </div>
 <% end %>

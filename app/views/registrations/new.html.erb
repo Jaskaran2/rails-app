@@ -9,19 +9,20 @@
                 <%= link_to "Sign up",sign_up_path,class:"nav-link active signup"%>
             </li>    
         </ul>
+
         <div class="form px-4 pt-5">
             <h1>Sign up</h1>
             <%= form_with model: @user, url: sign_up_path do |form| %>
-            <% if @user.errors.any? %>
-                <div class="alert alert-danger">
+                <% if @user.errors.any? %>
+                    <div class="alert alert-danger">
                     <% form.object.errors.full_messages.each do |msg| %>
+                        <%puts msg%>
                         <div>
-                            <%= msg %>
+                            <%flash[:alert]= msg %>
                         </div>
                     <%end%>
-                </div>
-            <%end%> 
-
+                    </div>
+                 <%end%> 
             <div class="mb-3">
                 <%=form.label :email %>
                 <%= form.text_field :email, class:"form-control" %>
@@ -34,7 +35,7 @@
 
             <div class="mb-3">
                 <%=form.label :confirm_password %>
-                <%= form.password_field :password_confirmation, class:"form-control" %>
+                <%= form.password_field :password_confirmation, class:"form-control",id:"confirm_password" %>
             </div>
 
             <div class="mb-3">

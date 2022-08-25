@@ -21,10 +21,10 @@ class ArticlesController<ApplicationController
         @article =Current.user.articles.new(article_params)
     
         if @article.save
-          redirect_to root_path
+          redirect_to root_path,notice: "Post created"
         else
-          puts "Wrong inputs!! Something is missing"
-          redirect_to new_article_path 
+          flash[:error]="Wrong inputs!! Something is missing"
+          render :new 
         end
       end
 
@@ -60,7 +60,7 @@ class ArticlesController<ApplicationController
     private
 
     def article_params
-      params.require(:article).permit(:title, :body, :private,:status)
+      params.require(:article).permit(:title, :body,:status)
     end
 
 
